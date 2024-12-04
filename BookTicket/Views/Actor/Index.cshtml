@@ -1,0 +1,26 @@
+﻿@model List<Actor>
+<br />
+<table class="table" style="border:solid">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col" style="text-align:center">ID</th>
+            <th scope="col" style="text-align:center">Name</th>
+            <th scope="col" style="text-align:center">Bio</th>
+            <th scope="col" style="text-align:center">ProfilePicture</th>
+            <th scope="col" style="text-align:center">News</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="border:solid">
+                <th scope="row" style="border:solid">@item.Id</th>
+                <th scope="row" style="border:solid">@item.FirstName @item.LastName</th>
+                <th scope="row" style="border:solid">@item.Bio</th>
+                <th scope="row" style="border:solid;text-align:center"> <img src="~/Images/cast/@item.ProfilePicture" alt="Alternate Text" /> </th>
+                <th scope="row" style="border:solid">@item.News</th>
+
+            </tr>
+        }
+    </tbody>
+</table>

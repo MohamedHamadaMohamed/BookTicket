@@ -1,0 +1,37 @@
+﻿@model List<Movie>
+<br />
+<table class="table" style="border:solid">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col" style="text-align:center">ID</th>
+            <th scope="col" style="text-align:center">Name</th>
+            <th scope="col" style="text-align:center">Description</th>
+            <th scope="col" style="text-align:center">Price</th>
+            <th scope="col" style="text-align:center">Img Url</th>
+            <th scope="col" style="text-align:center">Trailer Url</th>
+            <th scope="col" style="text-align:center">Start Date</th>
+            <th scope="col" style="text-align:center">End Date</th>
+            <th scope="col" style="text-align:center">Movie Status</th>
+            <th scope="col" style="text-align:center">Cinema Name</th>
+            <th scope="col" style="text-align:center">Category Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="border:solid">
+                <th scope="row" style="border:solid">@item.Id</th>
+                <th scope="row" style="border:solid">@item.Name</th>
+                <th scope="row" style="border:solid">@item.Description</th>
+                <th scope="row" style="border:solid">@item.Price</th>
+                <th scope="row" style="border:solid">@item.ImgUrl</th>
+                <th scope="row" style="border:solid"><a href="@item.TrailerUrl"> @item.TrailerUrl</a></th>
+                <th scope="row" style="border:solid">@item.StartDate</th>
+                <th scope="row" style="border:solid">@item.EndDate</th>
+                <th scope="row" style="border:solid">@item.MovieStatus</th>
+                <th scope="row" style="border:solid">@item.Cinema.Name</th>
+                <th scope="row" style="border:solid">@item.Category.Name</th>
+            </tr>
+        }
+    </tbody>
+</table>
