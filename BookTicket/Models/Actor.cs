@@ -1,9 +1,17 @@
-﻿namespace BookTicket.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BookTicket.Models
 {
     public class Actor
     {
         public int Id { get; set; }
+        [Required]
+        [MinLength(1)]
+        [MaxLength(255)]
         public string FirstName { get; set; }
+        [Required]
+        [MinLength(1)]
+        [MaxLength(255)]
         public string LastName { get; set; }
         public string Bio { get; set; }
         public string ProfilePicture { get; set; }

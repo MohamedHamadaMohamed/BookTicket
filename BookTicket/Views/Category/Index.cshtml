@@ -1,5 +1,18 @@
 ﻿@model List<Category>
+
 <br />
+
+<div class="row">
+    <div class="col-10">
+        <h1>All Cateories</h1>
+    </div>
+    <div class="col-2">
+        <a href="/Category/Create" class="btn btn-light"><i class="bi bi-plus-circle"></i> Add New Category</a>
+    </div>
+</div>
+<br />
+
+
 <table class="table" style="border:solid; text-align:center">
     <thead class="table-dark">
         <tr>
@@ -7,6 +20,7 @@
             <th scope="col" style="text-align:center">Name</th>
             <th scope="col" style="text-align:center">Movies</th>
             <th scope="col" style="text-align:center">Number Of Movies</th>
+            <th scope="col" style="text-align:center">Actions</th>
 
         </tr>
     </thead>
@@ -18,6 +32,8 @@
                 <th scope="row" style="border:solid">@item.Name</th>
                 <th scope="row" style="border:solid"><a href="/Category/SCategory?CategoryId=@item.Id">All Movies</a></th>
                 <th scope="row" style="border:solid">@item.Movies.Count()</th>
+                <td><a href="/Category/Edit?CategoryId=@item.Id" class="btn btn-primary "><i class="bi bi-pencil-square"></i> Edit</a> <a href="/Category/Delete?CategoryId=@item.Id" onclick="return confirm('are you sure?')" class="btn btn-primary "><i class="bi bi-trash"></i> Delete</a></td>
+
                 
             </tr>
         }

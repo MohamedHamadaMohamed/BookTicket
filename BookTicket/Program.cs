@@ -1,3 +1,8 @@
+using BookTicket.Data;
+using BookTicket.Repository;
+using BookTicket.Repository.IRepository;
+using Microsoft.EntityFrameworkCore;
+
 namespace BookTicket
 {
     public class Program
@@ -8,6 +13,15 @@ namespace BookTicket
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<ApplicationDbContext>
+                (option => option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnention")));
+
+            builder.Services.AddScoped<ICinemaRepository, CinemaRepository>();
+            builder.Services.AddScoped<IMovieRepository,  MovieRepository>();
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<IActorRepository, ActorRepository>();
+            builder.Services.AddScoped<IActorMovieRepository, ActorMovieRepository>();
 
             var app = builder.Build();
 

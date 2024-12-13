@@ -23,7 +23,7 @@
                                 <p class="card-text">Cinema: @item.Cinema.Name</p>
                                 <p class="card-text">Start Date: @item.StartDate</p>
                                 <p class="card-text">End Date: @item.EndDate</p>
-                                    <p class="card-text">Category: <a href="/Category/SCategory?CategoryId=@item.Id" style="color:blue">@item.Category.Name</a></p>
+                                    <p class="card-text">Category: <a href="/Category/SCategory?CategoryId=@item.CategoryId" style="color:blue">@item.Category.Name</a></p>
                                     @if (item.MovieStatus == MovieStatus.Available)
                                     {
                                         <p class="card-text"><span class="badge bg-primary">@item.MovieStatus</span></p>
@@ -36,14 +36,14 @@
                                     {
                                         <p class="card-text"><span class="badge bg-warning">@item.MovieStatus</span></p>
                                     }
-                                    <a href="/Movie/Details?movieId=@item.Id" class="btn btn-outline-light">More Details</a>
+                                    <a href="/Movie/Details?movieId=@item.Id" class="btn btn-secondary">More Details</a>
                                     @if (item.MovieStatus == MovieStatus.Available)
                                     {
-                                        <a class="btn btn-outline-success">Book Ticket</a>
+                                        <a class="btn btn-success">Book Ticket</a>
                                     }
                                     else
                                     {
-                                        <button disabled class="btn btn-outline-success" style=" color:black ;background-color: slategray">Book Ticket</button>
+                                        <button disabled class="btn btn-dark disabled" style=" color:black ;background-color: slategray">Book Ticket</button>
 
                                     }
 

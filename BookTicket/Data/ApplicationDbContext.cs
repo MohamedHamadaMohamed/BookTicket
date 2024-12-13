@@ -12,7 +12,11 @@ namespace BookTicket.Data
         public DbSet<Actor> Actors { get; set; }
         public DbSet<Category> Categories { get; set; }
 
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+           : base(options)
+        {
 
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

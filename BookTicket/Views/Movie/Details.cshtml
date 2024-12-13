@@ -22,7 +22,8 @@
                             <p class="card-text">Cinema: @Model.Cinema.Name</p>
                             <p class="card-text">Start Date: @Model.StartDate</p>
                             <p class="card-text">End Date: @Model.EndDate</p>
-                            <p class="card-text">Category: <a href="/Category/SCategory?CategoryId=@Model.Id" style="color:blue">@Model.Category.Name</a></p>
+                            <p class="card-text">Views: @Model.views</p>
+                            <p class="card-text">Category: <a href="/Category/SCategory?CategoryId=@Model.CategoryId" style="color:blue">@Model.Category.Name</a></p>
                             
                             @foreach (var item in ViewBag.actors)
                             {
@@ -32,11 +33,11 @@
                             <br />
                             @if (Model.MovieStatus == MovieStatus.Available)
                             {
-                                <a class="btn btn-outline-success">Book Ticket</a>
+                                <a class="btn btn-success">Book Ticket</a>
                             }
                             else
                             {
-                                <button disabled class="btn btn-outline-success" style=" color:black ;background-color: slategray">Book Ticket</button>
+                                <button disabled class="btn btn-dark disabled" style=" color:black ;background-color: slategray">Book Ticket</button>
 
                             }
                             <br/>

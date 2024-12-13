@@ -1,0 +1,18 @@
+﻿@model Category
+<div class="row mt-2">
+    <h1><a href="/Category/Index"><i class="bi bi-arrow-left"></i> </a>  Create New Category</h1>
+</div>
+<div class="row">
+    <form action="/Category/Create" method="post">
+        <div class="mb-3">
+            <label for="CategoryName" class="form-label">Category Name</label>
+            <input type="text" class="form-control" value="@Model.Name" id="CategoryName" name="Name" placeholder="Category Name">
+        </div>
+
+        <span class="text-danger" asp-validation-for="@Model.Name"></span>
+        <br />
+        <button type="submit" class="btn btn-primary ">Create</button>
+
+    </form>
+
+</div>

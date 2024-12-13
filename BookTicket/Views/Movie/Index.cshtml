@@ -1,5 +1,15 @@
 ﻿@model List<Movie>
 <br />
+<div class="row">
+    <div class="col-10">
+        <h1>All Movies</h1>
+    </div>
+    <div class="col-2">
+        <a href="/Movie/Create" class="btn btn-secondary"><i class="bi bi-plus-circle"></i> Add New Movie</a>
+    </div>
+</div>
+<br />
+
 <table class="table" style="border:solid">
     <thead class="table-dark">
         <tr>
@@ -7,30 +17,41 @@
             <th scope="col" style="text-align:center">Name</th>
             <th scope="col" style="text-align:center">Description</th>
             <th scope="col" style="text-align:center">Price</th>
-            <th scope="col" style="text-align:center">Img Url</th>
-            <th scope="col" style="text-align:center">Trailer Url</th>
             <th scope="col" style="text-align:center">Start Date</th>
             <th scope="col" style="text-align:center">End Date</th>
             <th scope="col" style="text-align:center">Movie Status</th>
             <th scope="col" style="text-align:center">Cinema Name</th>
             <th scope="col" style="text-align:center">Category Name</th>
+            <th scope="col" style="text-align:center">Actions</th>
+
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr style="border:solid">
-                <th scope="row" style="border:solid">@item.Id</th>
-                <th scope="row" style="border:solid">@item.Name</th>
-                <th scope="row" style="border:solid">@item.Description</th>
-                <th scope="row" style="border:solid">@item.Price</th>
-                <th scope="row" style="border:solid">@item.ImgUrl</th>
-                <th scope="row" style="border:solid"><a href="@item.TrailerUrl"> @item.TrailerUrl</a></th>
-                <th scope="row" style="border:solid">@item.StartDate</th>
-                <th scope="row" style="border:solid">@item.EndDate</th>
-                <th scope="row" style="border:solid">@item.MovieStatus</th>
-                <th scope="row" style="border:solid">@item.Cinema.Name</th>
-                <th scope="row" style="border:solid">@item.Category.Name</th>
+                <td scope="row" style="border:solid">@item.Id</td>
+                <td scope="row" style="border:solid">@item.Name</td>
+                <td scope="row" style="border:solid">@item.Description</td>
+                <td scope="row" style="border:solid">@item.Price</td>
+                <td scope="row" style="border:solid">@item.StartDate</td>
+                <td scope="row" style="border:solid">@item.EndDate</td>
+                <td scope="row" style="border:solid">@item.MovieStatus</td>
+                <td scope="row" style="border:solid">@item.Cinema.Name</td>
+                <td scope="row" style="border:solid">@item.Category.Name</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <button type="button" class="btn btn-primary">Action</button>
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" href="/Movie/Edit?MovieId=@item.Id">Edit</a>
+                                <a class="dropdown-item" href="/Movie/Delete?MovieId=@item.Id" onclick="return confirm('are you sure?')">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+
             </tr>
         }
     </tbody>
